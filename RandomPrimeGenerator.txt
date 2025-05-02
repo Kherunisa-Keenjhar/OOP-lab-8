@@ -1,0 +1,29 @@
+import java.util.Random;
+public class RandomPrimeGenerator {
+    public static boolean isPrime(int num) {
+        if (num < 2) return false;
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) 
+             return false; }
+             return true; }
+     public static int generateRandomPrime(int min, int max) {
+        Random random = new Random();
+        int[] primes = new int[max - min + 1];
+        int count = 0;
+        for (int i = min; i <= max; i++) {
+            if (isPrime(i)) {
+                primes[count] = i;
+                count++; }}
+                 if (count == 0) {
+            System.out.println("No any prime number can be found in the range.");
+            return -1; }
+               int randomIndex = random.nextInt(count);
+        return primes[randomIndex]; }
+    public static void main(String[] args) {
+        int min = 10;
+        int max = 20;
+        int randomPrime = generateRandomPrime(min, max);
+        if (randomPrime != -1) {
+            System.out.println("Random prime between " + min + " and " + max + ": " + randomPrime);
+      }}  }
+  

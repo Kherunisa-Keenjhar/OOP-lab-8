@@ -1,0 +1,16 @@
+public class StringReverser {
+    public static String reverseString(String str) {
+        String reversed = " "; 
+        for (int r= str.length() - 1; r >= 0; r--) {
+         reversed + = str.charAt(i); 
+        }
+        return reversed;    }
+public class lab8{
+    public static void main(String[] args) {
+        String input = "hello";
+        String output = reverseString(input);
+        System.out.println("Original: " + input);
+        System.out.println("Reversed: " + output);
+    }
+}
+}

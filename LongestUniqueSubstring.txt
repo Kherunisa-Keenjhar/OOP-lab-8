@@ -1,0 +1,23 @@
+public class LongestUniqueSubstring {
+    public static int longestUniqueSubstring(String str) {
+        int maxLength = 0;
+        int start = 0;
+        int[] lastSeen = new int[256];  // for all ASCII characters
+        for (int i = 0; i < 256; i++) {
+            lastSeen[i] = -1; }
+                for (int end = 0; end < str.length(); end++) {
+            char currentChar = str.charAt(end);
+            if (lastSeen[currentChar] >= start) {
+                start = lastSeen[currentChar] + 1; }
+                      lastSeen[currentChar] = end;
+            int currentLength = end - start + 1;
+            if (currentLength > maxLength) {
+                maxLength = currentLength; }}
+                  return maxLength; }
+    public static void main(String[] args) {
+        String input = "abcabcbb";
+        int result = longestUniqueSubstring(input);
+        System.out.println("Input: " + input);
+        System.out.println("Length of Longest Unique Substring: " + result);
+    }
+}
